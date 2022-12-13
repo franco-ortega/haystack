@@ -81,7 +81,7 @@ A single post looks like this:
 
 There is an array of posts contained in the file `src/localPlaceholderData.js`.
 
-Render a this data in a list that shows the "title" and "id" of each post in order, importing the data from `src/localPlaceholderData.js`.
+Render this data in a list that shows the "title" and "id" of each post in order, importing the data from `src/localPlaceholderData.js`.
 
 Display the text in a column (id should be below title visually).
 
@@ -110,7 +110,7 @@ Fetch the posts from `https://jsonplaceholder.typicode.com/posts` to show the us
 
 ### Loading Indicator (30 points)
 
-Give the user some type of loading indicator while the data is being fetched. No pressure to do anything fancy here, a simple message on the screen that just says `Loading...` will suffice. But if you want to do a fancy or animation or something go for it.
+Give the user some type of loading indicator while the data is being fetched. No pressure to do anything fancy here, a simple message on the screen that just says `Loading...` will suffice. But if you want to do a fancy animation or something go for it.
 
 ### Search By Title (50 points)
 
