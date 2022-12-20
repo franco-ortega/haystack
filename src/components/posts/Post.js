@@ -12,7 +12,8 @@ const styles = {
     borderRadius: 10,
     borderStyle: 'solid',
     backgroundColor: 'white',
-    listStyleType: 'none'
+    listStyleType: 'none',
+    padding: 12
   },
   title: {
     fontSize: '1.25rem'
