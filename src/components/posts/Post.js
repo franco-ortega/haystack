@@ -27,7 +27,8 @@ const styles = {
     left: 2
   },
   title: {
-    fontSize: '1.25rem'
+    fontSize: '1.25rem',
+    maxWidth: 'calc(50%)'
   },
   id: {
     fontSize: '1.1rem',
