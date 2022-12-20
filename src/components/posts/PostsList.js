@@ -12,7 +12,8 @@ export default function PostsList({ posts }) {
 
 const styles = {
   postsList: {
-    borderColor: 'gray',
-    borderRadius: 10
+    borderColor: '#FFBF00',
+    borderRadius: 10,
+    borderStyle: 'solid'
   }
 };
