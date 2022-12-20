@@ -9,9 +9,10 @@ export default function Post({ title, id }) {
 
 const styles = {
   post: {
-    backgroundColor: 'white',
-    borderColor: 'gray',
+    borderColor: '#FFBF00',
     borderRadius: 10,
+    borderStyle: 'solid',
+    backgroundColor: 'white',
     listStyleType: 'none'
   },
   title: {
