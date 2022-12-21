@@ -9,15 +9,17 @@ export default function Post({ title, id }) {
     if (window.matchMedia('(max-width: 500px)').matches) {
       setIsMobile(true);
     }
-  }, [isMobile]);
+  }, []);
 
   return (
     <li style={styles.post}>
       <div style={styles.icon}>
-        <FontAwesomeIcon icon={faBahai} fontSize={9} />
+        <FontAwesomeIcon icon={faBahai} color={'#FFBF00'} />
       </div>
-      <div style={styles.title}>Title: {title}</div>
-      <div style={styles.id}>ID: {id}</div>
+      <div style={styles.text}>
+        <div style={styles.title}>Title: {title}</div>
+        <div style={styles.id}>ID: {id}</div>
+      </div>
       {!isMobile && <div style={styles.chevron}>{'>'}</div>}
     </li>
   );
@@ -26,19 +28,20 @@ export default function Post({ title, id }) {
 const styles = {
   post: {
     borderRadius: 10,
-    borderStyle: 'solid',
     backgroundColor: 'white',
     listStyleType: 'none',
     padding: 12,
-    position: 'relative'
+    position: 'relative',
+    display: 'flex'
   },
   icon: {
-    position: 'absolute',
-    left: 2
+    paddingTop: '0.1rem'
+  },
+  text: {
+    maxWidth: '50%'
   },
   title: {
-    fontSize: '1.25rem',
-    maxWidth: 'calc(50%)'
+    fontSize: '1.25rem'
   },
   id: {
     fontSize: '1.1rem',

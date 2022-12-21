@@ -12,8 +12,9 @@ export default function PostsList({ posts }) {
 
 const styles = {
   postsList: {
+    marginInline: 'auto',
     paddingBlock: '1rem',
-    paddingInline: '3rem',
+    width: '75%',
     display: 'flex',
     flexDirection: 'column',
     gap: '1rem'
