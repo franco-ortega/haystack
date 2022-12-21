@@ -10,7 +10,7 @@ export default function Layout({ children }) {
           style={styles.backgroundImage}
         />
       </div>
-      {children}
+      <main style={styles.content}>{children}</main>
     </div>
   );
 }
@@ -30,11 +30,15 @@ const styles = {
   },
   layout: {
     position: 'fixed',
-    top: 0,
     left: 0,
-    bottom: 0,
     right: 0,
-    overflow: 'auto',
-    background: '#1a1a1a'
+    top: 0,
+    bottom: 0,
+    background: '#1a1a1a',
+    overflow: 'auto'
+  },
+  content: {
+    position: 'relative',
+    zIndex: 1
   }
 };
