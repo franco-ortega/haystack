@@ -1,3 +1,3 @@
 export default function PartThreeDetail() {
-  return null;
+  return <div>Details page!</div>;
 }
