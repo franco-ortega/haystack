@@ -1,13 +1,18 @@
 import { useEffect, useState } from 'react';
 import Layout from '../../components/layout/Layout';
+import Loading from '../../components/loading/Loading';
 import PostsList from '../../components/posts/PostsList';
 import getPosts from '../../services/getPosts';
 
 export default function PartTwo() {
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getPosts().then((res) => setPosts(res));
+    getPosts().then((res) => {
+      setPosts(res);
+      setLoading(false);
+    });
   }, []);
 
   return (
@@ -16,7 +21,7 @@ export default function PartTwo() {
         <h1>Posts</h1>
         <div style={styles.underline} />
       </header>
-      <PostsList posts={posts} />
+      {loading ? <Loading /> : <PostsList posts={posts} />}
     </Layout>
   );
 }
