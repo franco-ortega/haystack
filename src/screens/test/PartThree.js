@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Header from '../../components/header/Header';
 import Layout from '../../components/layout/Layout';
 import Loading from '../../components/loading/Loading';
 import PostsList from '../../components/posts/PostsList';
@@ -23,10 +24,7 @@ export default function PartThree() {
 
   return (
     <Layout>
-      <header style={styles.header}>
-        <h1>Posts</h1>
-        <div style={styles.underline} />
-      </header>
+      <Header text='Posts' />
       {posts.length && <Search setSearchTerm={setSearchTerm} />}
       {loading ? (
         <Loading />
