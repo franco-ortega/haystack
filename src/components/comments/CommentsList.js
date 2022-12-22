@@ -1,29 +1,25 @@
-import React, { useState } from 'react';
+import { getHiddenComments } from '../../utils/localStorage';
+import checkIsVisible from '../../utils/checkIsVisible';
 import Comment from './Comment';
 
-const HIDDEN_COMMENTS = 'HIDDEN_COMMENTS';
-
 export default function CommentsList({ comments }) {
-  const [hiddenComments, setHiddenComments] = useState(() => {
-    return JSON.parse(localStorage.getItem(HIDDEN_COMMENTS)) || {};
-  });
-
-  console.log(hiddenComments);
+  const hiddenComments = getHiddenComments();
 
   return (
     <ul style={styles.commentsList}>
       <div style={styles.title}>Comments</div>
-      {comments.map((comment) => (
-        <Comment
-          key={comment.id}
-          body={comment.body}
-          email={comment.email}
-          commentId={comment.id}
-          postId={comment.postId}
-          hiddenComments={hiddenComments}
-          setHiddenComments={setHiddenComments}
-        />
-      ))}
+      {comments
+        .filter((comment) => checkIsVisible(hiddenComments, comment))
+        .map((comment) => (
+          <Comment
+            key={comment.id}
+            body={comment.body}
+            email={comment.email}
+            commentId={comment.id}
+            postId={comment.postId}
+            hiddenComments={hiddenComments}
+          />
+        ))}
     </ul>
   );
 }

@@ -1,37 +1,26 @@
 import { useState } from 'react';
-
-const HIDDEN_COMMENTS = 'HIDDEN_COMMENTS';
+import { storeHiddenComments } from '../../utils/localStorage';
 
 export default function Comment({
   body,
   email,
   commentId,
   postId,
-  hiddenComments,
-  setHiddenComments
+  hiddenComments
 }) {
   const [hidden, setHidden] = useState(false);
 
   const onHideCommentClick = () => {
-    if (hiddenComments[postId]) {
-      console.log(hiddenComments[postId]);
-      if (!hiddenComments[postId].includes(commentId)) {
-        console.log('need to add:');
-        hiddenComments[postId].push(commentId);
-      }
-    } else {
-      hiddenComments[postId] = [commentId];
-    }
+    if (hiddenComments[postId]) hiddenComments[postId].push(commentId);
+    else hiddenComments[postId] = [commentId];
 
-    setHiddenComments(hiddenComments);
-
-    localStorage.setItem(HIDDEN_COMMENTS, JSON.stringify(hiddenComments));
+    storeHiddenComments(hiddenComments);
     setHidden(true);
   };
 
   return (
     <>
-      {!hidden && !hiddenComments[postId]?.includes(commentId) && (
+      {!hidden && (
         <li style={styles.comment}>
           <div style={styles.body}>{body}</div>
           <div style={styles.email}>by {email}</div>
