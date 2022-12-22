@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Comment from './Comment';
 
+const HIDDEN_COMMENTS = 'HIDDEN_COMMENTS';
+
 export default function CommentsList({ comments }) {
+  const [hiddenComments, setHiddenComments] = useState(() => {
+    return JSON.parse(localStorage.getItem(HIDDEN_COMMENTS)) || {};
+  });
+
+  console.log(hiddenComments);
+
   return (
     <ul style={styles.commentsList}>
       <div style={styles.title}>Comments</div>
@@ -10,7 +18,10 @@ export default function CommentsList({ comments }) {
           key={comment.id}
           body={comment.body}
           email={comment.email}
-          id={comment.id}
+          commentId={comment.id}
+          postId={comment.postId}
+          hiddenComments={hiddenComments}
+          setHiddenComments={setHiddenComments}
         />
       ))}
     </ul>

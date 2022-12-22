@@ -1,18 +1,42 @@
 import { useState } from 'react';
 
-export default function Comment({ body, email, id }) {
+const HIDDEN_COMMENTS = 'HIDDEN_COMMENTS';
+
+export default function Comment({
+  body,
+  email,
+  commentId,
+  postId,
+  hiddenComments,
+  setHiddenComments
+}) {
   const [hidden, setHidden] = useState(false);
 
-  const onRemoveCommentClick = () => setHidden(true);
+  const onHideCommentClick = () => {
+    if (hiddenComments[postId]) {
+      console.log(hiddenComments[postId]);
+      if (!hiddenComments[postId].includes(commentId)) {
+        console.log('need to add:');
+        hiddenComments[postId].push(commentId);
+      }
+    } else {
+      hiddenComments[postId] = [commentId];
+    }
+
+    setHiddenComments(hiddenComments);
+
+    localStorage.setItem(HIDDEN_COMMENTS, JSON.stringify(hiddenComments));
+    setHidden(true);
+  };
 
   return (
     <>
-      {!hidden && (
+      {!hidden && !hiddenComments[postId]?.includes(commentId) && (
         <li style={styles.comment}>
           <div style={styles.body}>{body}</div>
           <div style={styles.email}>by {email}</div>
-          <button style={styles.button} onClick={onRemoveCommentClick}>
-            Remove Comment
+          <button style={styles.button} onClick={onHideCommentClick}>
+            Hide Comment
           </button>
         </li>
       )}
