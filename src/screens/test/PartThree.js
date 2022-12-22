@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
-import Header from '../../components/header/Header';
-import Layout from '../../components/layout/Layout';
-import Loading from '../../components/loading/Loading';
-import ClickablePostsList from '../../components/posts/ClickablePostsList';
-import PostsList from '../../components/posts/PostsList';
-import Search from '../../components/search/Search';
 import getPosts from '../../services/getPosts';
+import Layout from '../../components/layout/Layout';
+import Header from '../../components/header/Header';
+import Loading from '../../components/loading/Loading';
+import Search from '../../components/search/Search';
+import ClickablePostsList from '../../components/posts/ClickablePostsList';
 
 export default function PartThree() {
   const [posts, setPosts] = useState([]);

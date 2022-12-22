@@ -38,7 +38,6 @@ const styles = {
     borderRadius: 10,
     width: 'clamp(15rem, 75%, 50rem)',
     marginInline: 'auto',
-    // marginTop: '1.5rem',
     padding: 'clamp(12px, 2%, 2rem)',
     overflow: 'auto',
     position: 'fixed',

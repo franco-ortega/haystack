@@ -13,8 +13,8 @@ export default function Post({ title, id }) {
   }, []);
 
   return (
-    <li style={styles.post}>
-      <Link to={`/post/${id}`} style={styles.link}>
+    <Link to={`/post/${id}`} style={styles.link}>
+      <li style={styles.post}>
         <div style={styles.icon}>
           <FontAwesomeIcon icon={faBahai} color={'#FFBF00'} />
         </div>
@@ -23,8 +23,8 @@ export default function Post({ title, id }) {
           <div style={styles.id}>ID: {id}</div>
         </div>
         {!isMobile && <div style={styles.chevron}>{'>'}</div>}
-      </Link>
-    </li>
+      </li>
+    </Link>
   );
 }
 
