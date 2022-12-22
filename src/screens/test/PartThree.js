@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Header from '../../components/header/Header';
 import Layout from '../../components/layout/Layout';
 import Loading from '../../components/loading/Loading';
+import ClickablePostsList from '../../components/posts/ClickablePostsList';
 import PostsList from '../../components/posts/PostsList';
 import Search from '../../components/search/Search';
 import getPosts from '../../services/getPosts';
@@ -29,7 +30,7 @@ export default function PartThree() {
       {loading ? (
         <Loading />
       ) : filteredPosts.length ? (
-        <PostsList posts={filteredPosts} />
+        <ClickablePostsList posts={filteredPosts} />
       ) : (
         <div style={styles.noResults}>No Results</div>
       )}

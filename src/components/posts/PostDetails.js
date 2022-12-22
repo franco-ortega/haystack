@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import getComments from '../services/getComments';
-import getPostById from '../services/getPostById';
-import CommentsList from './comments/CommentsList';
-import Header from './header/Header';
-import Loading from './loading/Loading';
+import getComments from '../../services/getComments';
+import getPostById from '../../services/getPostById';
+import CommentsList from '../comments/CommentsList';
+import Header from '../header/Header';
+import Loading from '../loading/Loading';
 
 export default function PostDetails() {
   const [postDetails, setPostDetails] = useState(null);
