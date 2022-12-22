@@ -6,7 +6,12 @@ export default function CommentsList({ comments }) {
     <ul style={styles.commentsList}>
       <div style={styles.title}>Comments</div>
       {comments.map((comment) => (
-        <Comment key={comment.id} email={comment.email} body={comment.body} />
+        <Comment
+          key={comment.id}
+          body={comment.body}
+          email={comment.email}
+          id={comment.id}
+        />
       ))}
     </ul>
   );
