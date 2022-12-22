@@ -16,7 +16,7 @@ const styles = {
   },
   underline: {
     borderBottomColor: '#FFBF00',
-    width: '75%',
+    width: 'clamp(15rem, 75%, 50rem)',
     height: 3,
     backgroundColor: '#FFBF00',
     marginInline: 'auto',
